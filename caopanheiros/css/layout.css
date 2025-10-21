@@ -1,0 +1,89 @@
+body {
+  font-family: var(--font-family);
+  color: var(--color-neutral-700);
+  background-color: var(--color-neutral-200);
+  margin: 0;
+}
+
+/* Layout base em grid */
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-2);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-3);
+}
+
+/* Cabeçalho */
+header {
+  grid-column: 1 / -1;
+  background-color: var(--color-primary);
+  color: var(--color-neutral-100);
+  padding: var(--space-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Menu responsivo */
+nav ul {
+  display: flex;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav ul li a:hover {
+  color: var(--color-accent);
+}
+
+/* Menu hambúrguer */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  margin: 4px 0;
+}
+
+/* Cards dos projetos */
+.card {
+  background: var(--color-neutral-100);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: var(--space-2);
+}
+
+/* Responsividade (5 breakpoints) */
+@media (max-width: 1200px) { .container { max-width: 1000px; } }
+@media (max-width: 992px)  { nav ul { gap: var(--space-1); } }
+@media (max-width: 768px)  { nav ul { display: none; } .menu-toggle { display: flex; } }
+@media (max-width: 576px)  { .card img { height: 150px; } }
+@media (max-width: 400px)  { header h1 { font-size: var(--font-md); } }
